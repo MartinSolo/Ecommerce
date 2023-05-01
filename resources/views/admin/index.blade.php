@@ -1,6 +1,4 @@
 <x-app-layout>
-</x-app-layout>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,3 +11,4 @@
     <h1>This is Admin </h1>
 </body>
 </html>
+</x-app-layout>
