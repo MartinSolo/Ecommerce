@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-wai-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        @include('admin.layout.sidebar')s
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                @include('admin.layout.topbar')
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            <button class="close" type="button" data-dismiss="alert" aria-hidden="true">
+                                x
+                            </button>
+
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
+
+                    <h2>Add Product</h2>
+                    <div>
+                        {{-- <form action="{{ @route('add.category') }}" method="POST">
+                            @csrf
+                            <input type="text" name="category" placeholder="Write Category Name"
+                                class="form-control bg-light border-0 small">
+                            <input type="submit" value="Add Category" name="submit" class="btn btn-primary">
+                        </form> --}}
+                        <form class="d-none d-sm-inline-block form-inline mr-auto md-3 my-2 my-md-0 mw-100 py-3"
+                            action="" method="POST">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="product" class="form-control bg-light border-0 small"
+                                    placeholder="Write Product Name" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <input type="submit" value="Add Category" name="submit" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Product Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>title</th>
+                                            <th>description</th>
+                                            <th>image</th>
+                                            <th>price</th>
+                                            <th>quantity</th>
+                                            <th>category</th>
+                                            <th>discount price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{-- @foreach ($data as $data)
+                                            <tr>
+                                                <td>{{ $data->Product_name }}</td>
+                                                <td>
+                                                    <a href="{{ @route("delete.category",['id'=>$data->id]) }}" class="btn btn-danger"  >Delete</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach --}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            @include('admin.layout.footer')
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-wai-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="admin/vendor/jquery/jquery.min.js"></script>
+    <script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="admin/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="admin/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="admin/js/demo/chart-area-demo.js"></script>
+    <script src="admin/js/demo/chart-pie-demo.js"></script>
+
+    {{-- <script>
+        $('input[type=submit]').click(function(e) {
+            $(this).attr("disabled", true);
+            var self = this;
+            setTimeout(function() {
+                // re-enable the submit button after 2 seconds
+                $(self).removeAttr("disabled");
+            }, 2000);
+        }); --}}
+    {{-- </script> --}}
+    {{-- <script>
+        $("#btn_delete").on("click", function() {
+    $(this).prop("disabled", true);
+});
+    </script> --}}
+
+</body>
+
+</html>
